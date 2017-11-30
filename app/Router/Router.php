@@ -20,20 +20,26 @@ class Router
         $this->url = $url;
     }
 
-    public function get($path, $callable){
-        $route = new Route($path, $callable);
+    public function get($path, $controller, $callable){
+        $route = new Route($path, $controller, $callable);
         $this->routes['GET'][] = $route;
         //var_dump($route);
     }
 
-    public function post($path, $callable){
-        $route = new Route($path, $callable);
+    public function post($path, $controller, $callable){
+        $route = new Route($path, $controller, $callable);
         $this->routes['POST'][] = $route;
     }
 
     public function run(){
+        if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
+            return 'FAILED';
+        }
         foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
-            return $route->call();
+
+            if($route->match($this->url)){
+                return $route->call();
+            }
         }
     }
 

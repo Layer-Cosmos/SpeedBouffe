@@ -6,18 +6,38 @@
  * Time: 16:39
  */
 
-require 'App.php';
+//require 'App.php';
 
-App::load();
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 //var_dump($_SERVER['REQUEST_METHOD']);
 
 //var_dump($_POST);
 
-$router = new App\Router\Router($_GET['url']);
 
-$router->get('/posts/', "show");
-$router->post('/posts/', "show");
+/*$entryData = array(
+    'Civilite' => $datas->Acheteur->Civilite
+, 'Nom'    => $datas->Acheteur->Nom
+, 'Prenom'  => $datas->Acheteur->Prenom
+, 'Age'     => $datas->Acheteur->Age
+);*/
+
+
+/*$context = new ZMQContext();
+//var_dump($context);
+$socket = $context->getSocket(ZMQ::SOCKET_PUSH, 'my pusher');
+$socket->connect("tcp://localhost:5555");
+
+//$socket->send(json_encode($entryData));
+
+//$socket->disconnect();
+*/
+$router = new \App\Router\Router($_GET['url']);
+
+$router->get('/Home/', "PostsController", "index");
+$router->get('/Stats/', "StatsController", "index");
+$router->get('/Commande/', "PostsController", "commande");
+$router->post('/Commande/', "PostsController", "commande");
 
 $router->run();
 

@@ -1,0 +1,136 @@
+*{
+	font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
+	padding: 0;
+	color: #393939;
+	box-sizing: border-box;
+}
+body {
+	width: 100%;
+	background-color: #eed690;
+}
+
+/*HEADER*/
+header{
+	width: 100%;
+	background-color: #393939;
+	margin-top: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.color-txt{
+	color: #ecefd8;
+}
+header nav ul{
+	list-style-type: none;
+}
+header nav ul li{
+	display: inline-block;
+	color: #FF7F00;
+	font-weight: bold;
+	margin-left: 100px;
+	
+}
+/*LISTE COMMANDE*/
+/*A faire apparaitre lorsqu'un commande arrive*/
+#liste-commande .fa-spinner{
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	font-size: 2rem;
+	text-align: center;
+}
+#liste-commande{
+	width: 80%;
+	margin: 0 auto;
+	background-color:#ecefd8;
+	box-shadow: 1px 1px 12px #555;
+	padding: 2% 5%;
+}
+/*Bulle de commande*/
+.commande{
+	border: #849561 3px solid;
+	border-radius: 20px;
+	padding: 3%;
+	margin-bottom: 2%;
+	display: none;
+}
+h3{
+	margin: 0;
+	padding: 0;
+}
+.info-commande{
+	list-style-type: none;
+}
+.info-commande li{
+	line-height: 2rem;
+}
+.gras{
+	font-weight: bold;
+}
+/*Apparition des bulles de commande*/
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+.fade-in {
+	opacity: 0;
+	animation: fadeIn .5s ease-in 1 forwards;
+}
+.is-paused {
+	animation-play-state: paused;
+}
+
+/*Class à part*/
+/*La class change d'endroit en fonction de la page utilisée (voir menu)*/
+.active{
+	border-bottom: 2px solid #ecefd8;
+}
+/*Une commande terminée recoit la class*/
+.fini{
+	background-color: #849561;
+	
+}
+.fini h3, .fini ul li, .fini .fa, .fini ul li span{
+	color: #ECEFD8;
+}
+.fini .fa{
+
+}
+
+/*PAGE STATS*/
+#stats{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.tab-stat{
+	width: 50%;
+	margin :30px;
+	border-collapse: collapse;
+}
+.titre-tab-stat{
+	font-weight: bold;
+	font-size: 1.5rem;
+	line-height: 3rem;
+}
+td{
+	border: #849561 3px solid;
+	line-height: 2rem;
+	padding-left: 5px;
+}
+.right{
+	text-align: right;
+	font-weight: bold;
+	padding-right: 5px;
+}
+.center{
+	text-align: center;
+	font-weight: bold;
+	background-color: #849561;
+	color: #393939;
+	border: #849561 3px solid;
+}
+
