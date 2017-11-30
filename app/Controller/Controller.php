@@ -6,7 +6,7 @@
  * Time: 18:31
  */
 
-namespace App\Controller;
+/*namespace App\Controller;
 
 use \App;
 
@@ -17,4 +17,4 @@ class Controller
         var_dump($data);
 
     }
-}
+}*/

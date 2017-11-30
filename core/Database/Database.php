@@ -29,7 +29,7 @@ class Database{
     public function getPDO()
     {
         if ($this->pdo === null){
-            $pdo = new PDO("mysql:dbname=marmiton;host=localhost", 'root', '');
+            $pdo = new PDO("mysql:dbname=$this->db_name;host=$this->db_host", $this->db_user, $this->db_pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
         }
@@ -59,6 +59,7 @@ class Database{
     {
         $req = $this->getPDO()->prepare($sql);
         $res = $req->execute($attributes);
+
         if(
             strpos($sql, 'UPDATE') === 0 ||
             strpos($sql, 'INSERT') === 0 ||

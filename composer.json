@@ -19,8 +19,11 @@
     }
   , "autoload": {
         "psr-4": {
-            "Ratchet\\": "src/Ratchet",
-            "MyApp\\": "src/MyApp"
+            "Ratchet\\": "App/Ratchet",
+            "Core\\": "Core/",
+            "App\\": "App/",
+            "MyApp\\": "App/MyApp",
+            "App\\Router\\": "App/Router"
         }
     }
   , "require": {

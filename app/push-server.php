@@ -8,8 +8,8 @@
     require dirname(__DIR__) . '/vendor/autoload.php';
 
     $loop   = React\EventLoop\Factory::create();
+
     $pusher = new MyApp\Serveur\Pusher();
-    //$pusher = new  MyApp\Serveur\Chat();
 
     // Listen for the web server to make a ZeroMQ push after an ajax request
     $context = new React\ZMQ\Context($loop);

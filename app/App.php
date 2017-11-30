@@ -6,6 +6,10 @@
  * Date: 25/10/2017
  * Time: 16:02
  */
+namespace App;
+
+use \Core\Config;
+
 class App
 {
     private static $_instance;
@@ -18,17 +22,23 @@ class App
         return self::$_instance;
     }
 
-    public static function load(){
+    /*public static function load(){
         require 'Autoloader.php';
         App\Autoloader::register();
         require '../core/Autoloader.php';
         Core\Autoloader::register();
+    }*/
+
+    public function getTable($name){
+        $class_name = '\\App\\Table\\' . ucfirst($name) . 'Table';
+        return new $class_name($this->getDb());
     }
 
     public function getDb(){
-        $config = Core\Config::getInstance('../config/config.php');
+
+        $config = Config::getInstance('../config/config.php');
         if(is_null($this->db_instance)){
-            $this->db_instance = new Core\Database\Database($config->get('db_name'), $config->get('db_user'), $config->get('db_pass'), $config->get('db_host'));
+            $this->db_instance = new \Core\Database\Database($config->get('db_name'), $config->get('db_user'), $config->get('db_pass'), $config->get('db_host'));
         }
         return $this->db_instance;
     }
